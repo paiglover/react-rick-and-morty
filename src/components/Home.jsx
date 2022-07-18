@@ -14,6 +14,14 @@ const Home = () => {
   //     })
   // }, [])
 
+  const Brad = {
+    name: 'Jerry',
+    status: 'Alive',
+    race: 'Human',
+    LKL: 'Earth (Replacement dimension)',
+    firstSeenIn: 'Rick Potion #9'
+  }
+
 
   return (
     <div className='home-container'>
@@ -32,7 +40,7 @@ const Home = () => {
 
             <div className="cards-container">
                 <div>
-                  {Card()}
+                  <Card name={Brad.name} status={Brad.status} race={Brad.race} LKL={Brad.LKL} firstSeenIn={Brad.firstSeenIn} />
                 </div>
             </div>
         </main>
