@@ -1,0 +1,42 @@
+* {
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FECD45;
+}
+
+.home-header {
+    padding: 1rem;
+}
+
+main {
+
+    height: 80vh;
+    margin-top: 1rem;
+}
+
+.profile-image {
+    height: 75px;
+    border-radius: 50%;
+    border: #FECD45 3px solid;
+}
+.user {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 0.5rem;
+}
+.cards-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}

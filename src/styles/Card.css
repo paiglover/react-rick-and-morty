@@ -1,0 +1,34 @@
+* {
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+.card-container {
+    height: 225px;
+    width: 450px;
+
+    display: flex;
+    align-items: center;
+    
+
+    padding: 1rem;
+    margin: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 15px;
+}
+
+.characterImage {
+    height: 175px;
+}
+.card-info {
+    padding: 1rem;
+}
+
+.gray-text {
+    color: rgb(158, 158, 158);
+}
+.white-text {
+    color: rgb(0, 0, 0);
+}
