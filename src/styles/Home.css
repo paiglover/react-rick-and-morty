@@ -40,3 +40,12 @@ main {
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+.btn-load-results {
+    padding: 2.5rem 5rem;
+    cursor: pointer;
+    background-color: lightgray;
+}
+.btn-load-results:hover {
+    transition: ease-in-out 500ms;
+    background-color: gray;
+}

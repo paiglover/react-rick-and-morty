@@ -4,22 +4,30 @@ import axios from 'axios'
 import Card from './Card'
 
 const Home = () => {
-    const [credits, setCredits] = useState(800)
-    const [state, setState] = useState()
-    
-  //   useEffect(() => {
-  //   axios.get('https://rickandmortyapi.com/api/character/')
-  //     .then(function (res) {
-  //       setState(res)
-  //     })
-  // }, [])
+    const [credits, setCredits] = useState(800);
+    const [state, setState] = useState();
+    const [map, setMap] = useState([]);
 
-  const Brad = {
+    const url = 'https://rickandmortyapi.com/api/character/'
+    
+    useEffect(() => {
+      axios.get(url).then((response) => {
+        setState(response.data);
+      });
+    }, []);
+
+  const dummy = {
     name: 'Jerry',
     status: 'Alive',
     race: 'Human',
     LKL: 'Earth (Replacement dimension)',
     firstSeenIn: 'Rick Potion #9'
+  }
+
+  const displayResults = () => {
+    const mapper = state.results.map(character => {
+      <Card name={character.name} status={character.status} species={character.species} image={character.image} />
+    })
   }
 
 
@@ -39,9 +47,10 @@ const Home = () => {
             </div>
 
             <div className="cards-container">
-                <div>
-                  <Card name={Brad.name} status={Brad.status} race={Brad.race} LKL={Brad.LKL} firstSeenIn={Brad.firstSeenIn} />
-                </div>
+              <button className='btn-load-results' onClick={() => displayResults()}> Load results </button>
+                {
+                  mapper
+                }
             </div>
         </main>
 
