@@ -2,58 +2,40 @@ import { useState, useEffect } from 'react'
 import '../styles/Home.css'
 import axios from 'axios'
 import Card from './Card'
+const url = 'https://rickandmortyapi.com/api/character/'
 
 const Home = () => {
-    const [credits, setCredits] = useState(800);
-    const [state, setState] = useState();
-    const [map, setMap] = useState([]);
+    const [data, setData] = useState([]);
 
-    const url = 'https://rickandmortyapi.com/api/character/'
-    
     useEffect(() => {
-      axios.get(url).then((response) => {
-        setState(response.data);
-      });
-    }, []);
-
-  const dummy = {
-    name: 'Jerry',
-    status: 'Alive',
-    race: 'Human',
-    LKL: 'Earth (Replacement dimension)',
-    firstSeenIn: 'Rick Potion #9'
-  }
-
-  const displayResults = () => {
-    const mapper = state.results.map(character => {
-      <Card name={character.name} status={character.status} species={character.species} image={character.image} />
-    })
-  }
-
+      axios.get(url)
+      .then(res => {
+        setData(res.data.results)
+        console.log(res)
+      })
+      .catch(err =>
+        console.log(err)
+      )
+    }, [])
 
   return (
     <div className='home-container'>
-        <header>
-            <h1 className='home-header'> Rick and Morty Collectible Cards </h1>
-        </header>
+      <header>
+          <h1 className='home-header'> Rick and Morty Collectible Cards </h1>
+      </header>
 
-        <main>
-            <div className="user">
-                <h4>Credits: {credits}</h4>
-                <h4>Next drop: 8HRS</h4>
-                {/* <div className="profile-picture">
-                    <img className='profile-image'/>
-                </div> */}
-            </div>
+      <main>
+          <div className="user">
+          </div>
 
-            <div className="cards-container">
-              <button className='btn-load-results' onClick={() => displayResults()}> Load results </button>
-                {
-                  mapper
-                }
-            </div>
-        </main>
+          <div className="cards-container">
 
+          {data.map(character => 
+          <Card key={character.id} name={character.name} gender={character.gender} status={character.status} species={character.species} origin={character.origin.name} image={character.image}/>
+          )
+          }
+          </div>
+      </main>
     </div>
   )
 }

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Card from "./components/Card";
+import Testo from "./components/test";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
